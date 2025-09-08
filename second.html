@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Guide to Office Administration & Management</title>
+    <!-- Chosen Palette: Warm Serenity -->
+    <!-- Application Structure Plan: The application is designed as a single-page interface using a vertical accordion structure. Each of the five modules is presented as a collapsible card. This design was chosen to manage the density of the expert-level information, preventing user overwhelm by presenting one topic at a time. This focused approach guides the user through the content logically, allowing them to expand and explore modules based on their interest, which is more user-friendly than a long, static document. The interactions are centered on clicking to reveal content, promoting active exploration. -->
+    <!-- Visualization & Content Choices: The application uses several interactive methods to present information. For the "Steps in Planning an Office Event" (Goal: Organize), a non-SVG, pure HTML/CSS stepper is used to visually guide the user through the process. For "Importance of CRM" (Goal: Inform/Compare), a dynamic Chart.js donut chart is implemented on a Canvas to provide a quick visual summary of benefits. Key concepts like the STAR method and Eisenhower Matrix (Goal: Inform) are highlighted in distinct callout boxes to emphasize their importance. These choices create an engaging and multi-faceted learning experience. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #fdfdfc;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        .module-card {
+            transition: all 0.3s ease-in-out;
+            border: 1px solid #e2e8f0;
+        }
+        .module-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            border-color: #3b82f6;
+        }
+        .module-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            padding: 0 2.5rem;
+        }
+        .module-card.active .module-content {
+            max-height: 2000px; 
+            padding: 1.5rem 2.5rem 2.5rem;
+        }
+        .arrow-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .module-card.active .arrow-icon {
+            transform: rotate(180deg);
+        }
+        .callout-box {
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto max-w-5xl px-4 py-8 sm:py-16">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Advanced Office Administration & Management</h1>
+            <p class="mt-4 text-lg text-gray-600">An interactive guide for intermediate to expert professionals.</p>
+        </header>
+
+        <main class="space-y-6">
+
+            <!-- Module 1: Event & Meeting Management -->
+            <div id="module-1" class="module-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="module-header p-6 sm:p-8 cursor-pointer flex justify-between items-center" onclick="toggleModule('module-1')">
+                    <h2 class="text-2xl font-bold text-gray-900">Module 1: Event & Meeting Management</h2>
+                    <svg class="arrow-icon w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="module-content">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">1. Meaning, Importance, and Types of Events</h3>
+                    <p class="mb-4">Event and meeting management is the strategic process of planning, executing, and evaluating professional gatherings to achieve specific organizational goals. It's more than just scheduling; it's about creating a productive environment for collaboration, decision-making, and team building.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Strategic Alignment:</strong> Ensures meetings and events are purposeful and contribute to the company's mission.</li>
+                        <li><strong>Stakeholder Engagement:</strong> Facilitates effective communication and engagement with employees, clients, and partners.</li>
+                        <li><strong>Morale and Culture:</strong> Well-organized events, from team lunches to company-wide conferences, boost employee morale and reinforce a positive company culture.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-4 text-gray-800">2. Steps in Planning an Office Event</h3>
+                    <p class="mb-4">Effective event planning follows a structured process to ensure all details are handled smoothly.</p>
+                    <ol class="list-decimal pl-5 space-y-3">
+                        <li><strong>Define Objectives & Scope:</strong> Clearly state the event's purpose, identify the audience, and define success metrics.</li>
+                        <li><strong>Budgeting:</strong> Create a detailed budget covering all potential costs and allocate a contingency fund (10-15%).</li>
+                        <li><strong>Logistics & Timeline:</strong> Work backward from the event date to create a project plan, select a venue, and book vendors.</li>
+                        <li><strong>Agenda & Content:</strong> Develop an engaging agenda and prepare all necessary materials like presentations and handouts.</li>
+                        <li><strong>Promotion & Registration:</strong> Market the event to the intended audience and set up an efficient registration system.</li>
+                        <li><strong>Execution & Follow-Up:</strong> Manage the event on the day and conduct a post-event analysis to evaluate its success.</li>
+                    </ol>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-4 text-gray-800">3. Virtual Meeting Tools</h3>
+                    <p class="mb-4">Proficiency with modern virtual meeting tools is essential. Popular platforms include Zoom, Microsoft Teams, and Google Meet.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Screen Sharing:</strong> Allows presenters to show slides, documents, or applications.</li>
+                        <li><strong>Recording:</strong> Enables the meeting to be saved for those who could not attend.</li>
+                        <li><strong>Breakout Rooms:</strong> Facilitates small-group discussions within a larger meeting.</li>
+                        <li><strong>Interactive Features:</strong> Use chat, Q&A, polls, and whiteboarding to engage participants.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Module 2: Office Procedures & Workflow Optimization -->
+            <div id="module-2" class="module-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="module-header p-6 sm:p-8 cursor-pointer flex justify-between items-center" onclick="toggleModule('module-2')">
+                    <h2 class="text-2xl font-bold text-gray-900">Module 2: Office Procedures & Workflow Optimization</h2>
+                    <svg class="arrow-icon w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="module-content">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">1. SOPs (Standard Operating Procedures)</h3>
+                    <p class="mb-4">SOPs are detailed, step-by-step instructions that help employees carry out routine operations. They are the backbone of a consistent and efficient workflow.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Improved Consistency & Quality:</strong> SOPs ensure tasks are performed the same way every time, reducing errors.</li>
+                        <li><strong>Efficient Training:</strong> They act as a comprehensive training manual for new hires.</li>
+                        <li><strong>Accountability:</strong> They clearly define roles and responsibilities.</li>
+                        <li><strong>Risk Mitigation:</strong> SOPs help ensure compliance with regulations and protect company assets.</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-4 text-gray-800">2. Delegation & Managing Deadlines</h3>
+                    <p class="mb-4">Delegation is a crucial management skill that empowers teams and optimizes workload.</p>
+                    <div class="callout-box">
+                        <p class="font-semibold">Key Concept: Eisenhower Matrix</p>
+                        <p class="text-sm text-gray-600">Prioritize tasks by categorizing them based on urgency and importance: 1. Do (Urgent, Important), 2. Decide (Not Urgent, Important), 3. Delegate (Urgent, Not Important), 4. Delete (Not Urgent, Not Important).</p>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-4 text-gray-800">3. Workflow Optimization</h3>
+                    <p class="mb-4">This is the process of streamlining business processes to increase efficiency and productivity.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Process Mapping:</strong> Visually map out current processes to identify bottlenecks and redundant steps.</li>
+                        <li><strong>Automation:</strong> Use software to automate repetitive, manual tasks like data entry or report generation.</li>
+                        <li><strong>Tool Integration:</strong> Ensure all software tools are integrated to avoid data silos and manual data transfer.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Module 3: Customer Relationship Management (CRM) -->
+            <div id="module-3" class="module-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="module-header p-6 sm:p-8 cursor-pointer flex justify-between items-center" onclick="toggleModule('module-3')">
+                    <h2 class="text-2xl font-bold text-gray-900">Module 3: Customer Relationship Management (CRM)</h2>
+                    <svg class="arrow-icon w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="module-content">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">1. Importance of CRM</h3>
+                    <p class="mb-4">CRM is a comprehensive strategy for managing all interactions with customers and prospects, helping to build strong, long-lasting relationships.</p>
+                    <div class="chart-container my-6">
+                        <canvas id="crmChart"></canvas>
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mb-6">Key benefits of a well-implemented CRM strategy.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-4 text-gray-800">2. Handling Client Inquiries & Complaints</h3>
+                    <p class="mb-4">Handling client issues professionally is critical for maintaining a positive brand reputation.</p>
+                    <ol class="list-decimal pl-5 space-y-2">
+                         <li><strong>Listen Actively & Empathize:</strong> Allow the client to explain fully and show you understand their frustration.</li>
+                         <li><strong>Gather Information:</strong> Ask clarifying questions to get a complete picture of the problem.</li>
+                         <li><strong>Provide a Solution:</strong> Offer a clear, transparent solution. If you can't solve it immediately, explain the next steps.</li>
+                         <li><strong>Follow Up:</strong> Check back to ensure the issue is resolved to the client's satisfaction.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Module 4: Career Development & Job Readiness -->
+            <div id="module-4" class="module-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="module-header p-6 sm:p-8 cursor-pointer flex justify-between items-center" onclick="toggleModule('module-4')">
+                    <h2 class="text-2xl font-bold text-gray-900">Module 4: Career Development & Job Readiness</h2>
+                    <svg class="arrow-icon w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="module-content">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">1. Resume Writing</h3>
+                    <p class="mb-4">A resume is your professional story, showcasing your skills and accomplishments. Always customize it using keywords from the job description.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-4 text-gray-800">2. Interview Skills</h3>
+                    <div class="callout-box">
+                        <p class="font-semibold">Key Technique: The STAR Method</p>
+                        <p class="text-sm text-gray-600">Structure your answers to behavioral questions by describing the <strong>S</strong>ituation, the <strong>T</strong>ask you had to complete, the <strong>A</strong>ction you took, and the <strong>R</strong>esult of your action. This provides a clear and compelling narrative of your experience.</p>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-4 text-gray-800">3. Creating a LinkedIn Profile</h3>
+                    <p class="mb-4">LinkedIn is a powerful tool for professional networking. A strong profile includes a professional headshot, a keyword-rich headline, and a detailed experience section.</p>
+                </div>
+            </div>
+            
+            <!-- Module 5: Professional Behaviour & Office Etiquette -->
+            <div id="module-5" class="module-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="module-header p-6 sm:p-8 cursor-pointer flex justify-between items-center" onclick="toggleModule('module-5')">
+                    <h2 class="text-2xl font-bold text-gray-900">Module 5: Professional Behaviour & Office Etiquette</h2>
+                    <svg class="arrow-icon w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="module-content">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">1. Grooming & Professional Attire</h3>
+                    <p class="mb-4">Your appearance sends a powerful message about your professionalism. Understand your company's dress code and always maintain a clean and tidy appearance.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-4 text-gray-800">2. Attitude & Discipline</h3>
+                    <p class="mb-4">A professional attitude is a cornerstone of a positive workplace. This includes maintaining a positive demeanor, being punctual, showing accountability, and taking a proactive approach to your work.</p>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-4 text-gray-800">3. Office Manners & Hierarchy</h3>
+                    <p class="mb-4">Office etiquette promotes a respectful and productive environment. This involves using polite language, being mindful of your tone in emails, respecting personal space, and understanding the organizational structure.</p>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="text-center mt-16">
+             <h2 class="text-2xl font-bold text-gray-900 mb-4">Conclusion</h2>
+             <p class="text-gray-600 max-w-3xl mx-auto">This guide serves as a comprehensive resource for mastering the core competencies of office administration and management. By deeply understanding these principles and implementing them in your daily work, you can transform your role from an administrative supporter to a strategic leader who drives organizational efficiency and growth. Continuously seeking to apply and refine these skills will not only make you a valuable asset but will also pave the way for future leadership opportunities.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function toggleModule(moduleId) {
+            const moduleCard = document.getElementById(moduleId);
+            const allCards = document.querySelectorAll('.module-card');
+            
+            // Close other cards
+            allCards.forEach(card => {
+                if (card.id !== moduleId && card.classList.contains('active')) {
+                    card.classList.remove('active');
+                }
+            });
+
+            // Toggle the clicked card
+            moduleCard.classList.toggle('active');
+        }
+
+        // Chart.js implementation for CRM module
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('crmChart').getContext('2d');
+            const crmChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Enhanced Customer Loyalty', 'Improved Customer Service', 'Sales & Marketing Efficiency', 'Data-Driven Decisions'],
+                    datasets: [{
+                        label: 'Importance of CRM',
+                        data: [35, 30, 20, 15],
+                        backgroundColor: [
+                            'rgba(59, 130, 246, 0.8)',
+                            'rgba(34, 197, 94, 0.8)',
+                            'rgba(249, 115, 22, 0.8)',
+                            'rgba(139, 92, 246, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(59, 130, 246, 1)',
+                            'rgba(34, 197, 94, 1)',
+                            'rgba(249, 115, 22, 1)',
+                            'rgba(139, 92, 246, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Key Benefits of CRM',
+                            font: {
+                                size: 16
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
