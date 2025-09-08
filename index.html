@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Administration & Management Notes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Lighter background */
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -4px rgba(0, 0, 0, 0.08);
+        }
+        .topic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .topic-header:hover {
+            background-color: #f1f5f9;
+        }
+        h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: #1a202c;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin: 0;
+        }
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #4a5568;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        ul, ol {
+            padding-left: 2rem;
+        }
+        li {
+            margin-bottom: 0.75rem;
+        }
+        .copy-btn {
+            background-color: #4a90e2;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .copy-btn:hover {
+            background-color: #357bd8;
+        }
+        .copied-msg {
+            display: none;
+            color: #10b981;
+            font-size: 0.875rem;
+            margin-left: 0.5rem;
+        }
+        .arrow {
+            width: 1rem;
+            height: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .content {
+            display: none;
+            padding: 0 2.5rem 2.5rem 2.5rem;
+        }
+        .card.active .content {
+            display: block;
+        }
+        .card.active .arrow {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="container">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 leading-tight">Office Administration & Management</h1>
+            <p class="mt-4 text-xl text-slate-600">Comprehensive Course Notes</p>
+        </header>
+
+        <main>
+            <section id="topic-1" class="card">
+                <div class="topic-header" onclick="toggleContent('topic-1')">
+                    <h2>Introduction to Office Administration & Management</h2>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="content">
+                    <button class="copy-btn float-right" onclick="copyContent('topic-1')">Copy Notes</button>
+                    <span id="copy-msg-1" class="copied-msg float-right mt-2">Copied!</span>
+                    <h3 class="text-slate-700">Meaning & Core Principles</h3>
+                    <p class="text-slate-600">Office administration is the systematic process of planning, organizing, coordinating, and controlling the day-to-day operations and functions of an office. It serves as the central nervous system of an organization, managing all resources—including human, physical, and informational—to ensure the efficient and effective achievement of organizational goals. It is an art of managing people, data, and processes to maintain a seamless workflow.</p>
+                    
+                    <h3 class="text-slate-700">Importance & Objectives</h3>
+                    <p class="text-slate-600">Effective administration is critical for an organization's success. Its key objectives include:</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li><strong>Smooth Operations:</strong> Ensures all daily tasks are completed without interruptions or delays, preventing bottlenecks.</li>
+                        <li><strong>Resource Optimization:</strong> Leads to the efficient and optimal use of office resources, such as supplies, equipment, and space, thereby minimizing waste and operational costs.</li>
+                        <li><strong>Effective Communication:</strong> Establishes clear, timely, and accurate channels for both internal and external communication.</li>
+                        <li><strong>Goal Alignment:</strong> Directly links daily office activities to the company's overall mission and strategic objectives.</li>
+                        <li><strong>Employee Morale:</strong> Creates a professional, organized, and positive work environment that boosts employee morale and productivity.</li>
+                    </ul>
+
+                    <h3 class="text-slate-700">Functions of Office Administration</h3>
+                    <p class="text-slate-600">The core functions follow the classic management cycle:</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li><strong>Planning:</strong> Defining future goals and outlining the detailed strategies and procedures to achieve them.</li>
+                        <li><strong>Organizing:</strong> Arranging resources, delegating tasks, and establishing a clear structure to implement the plans.</li>
+                        <li><strong>Staffing:</strong> The process of hiring, training, and retaining competent personnel for various roles.</li>
+                        <li><strong>Directing:</strong> Guiding, supervising, and motivating employees to perform their duties effectively.</li>
+                        <li><strong>Controlling:</strong> Monitoring performance against established standards, analyzing deviations, and taking corrective actions to ensure goals are met.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="topic-2" class="card">
+                <div class="topic-header" onclick="toggleContent('topic-2')">
+                    <h2>Fundamentals of Office Administration & Management</h2>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="content">
+                    <button class="copy-btn float-right" onclick="copyContent('topic-2')">Copy Notes</button>
+                    <span id="copy-msg-2" class="copied-msg float-right mt-2">Copied!</span>
+                    <h3 class="text-slate-700">Roles & Responsibilities of an Administrator</h3>
+                    <p class="text-slate-600">An administrator is a vital linchpin in any organization. Their role is both strategic and operational. Key responsibilities include:</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li><strong>Administrative Support:</strong> Managing calendars, scheduling meetings, and handling travel arrangements.</li>
+                        <li><strong>Information Management:</strong> Organizing and maintaining both physical and digital files and records to ensure data integrity and accessibility.</li>
+                        <li><strong>Communication Hub:</strong> Serving as the first point of contact for internal and external stakeholders, handling correspondence, and directing inquiries.</li>
+                        <li><strong>Supply Chain Management:</strong> Ordering and managing office supplies, equipment, and services.</li>
+                        <li><strong>Problem-Solving:</strong> Proactively identifying and resolving logistical and procedural issues that arise in the office.</li>
+                    </ul>
+                    
+                    <h3 class="text-slate-700">Office Environment & Types</h3>
+                    <p class="text-slate-600">The physical and cultural environment of an office significantly impacts employee well-being and productivity. Common layouts include:</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li><strong>Traditional/Cellular Office:</strong> Features private offices for employees. Provides privacy and reduces distractions but can hinder spontaneous collaboration.</li>
+                        <li><strong>Open-Plan Office:</strong> A large, open space with shared desks. Promotes communication and teamwork but can be noisy and lead to a lack of privacy.</li>
+                        <li><strong>Hybrid/Flexible Office:</strong> A blend of remote work and in-office time, offering employees flexibility. Requires strong communication protocols and technology.</li>
+                    </ul>
+
+                    <h3 class="text-slate-700">Ethics & Professionalism</h3>
+                    <p class="text-slate-600">Ethical conduct and professionalism are non-negotiable for an administrator. This involves acting with integrity, honesty, and a high degree of responsibility. Key aspects include maintaining strict confidentiality of sensitive information, respecting colleagues, adhering to company policies, and demonstrating a positive, solution-oriented attitude at all times.</p>
+                    
+                    <h3 class="text-slate-700">Registers & Their Types</h3>
+                    <p class="text-slate-600">Registers are formal record-keeping books used to track and monitor important activities. They are crucial for maintaining an audit trail and ensuring compliance.</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li><strong>Attendance Register:</strong> Used to track employee attendance, working hours, and punctuality.</li>
+                        <li><strong>Mail Register:</strong> A log of all incoming and outgoing mail, parcels, and documents to ensure nothing is lost.</li>
+                        <li><strong>Leave Register:</strong> Records all employee leave applications, approvals, and balances.</li>
+                        <li><strong>Stock Register:</strong> An inventory record of all office supplies and assets, helping to manage stock levels and prevent shortages.</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="topic-3" class="card">
+                <div class="topic-header" onclick="toggleContent('topic-3')">
+                    <h2>Office Management & Organizational Skills</h2>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="content">
+                    <button class="copy-btn float-right" onclick="copyContent('topic-3')">Copy Notes</button>
+                    <span id="copy-msg-3" class="copied-msg float-right mt-2">Copied!</span>
+                    <h3 class="text-slate-700">Office Layout & Ergonomics</h3>
+                    <p class="text-slate-600">A smart office layout optimizes workflow and enhances productivity. <strong>Ergonomics</strong> is the science of designing the workplace to fit the user, rather than forcing the user to fit the workplace. Key ergonomic principles include proper chair height, monitor placement at eye level, and adequate lighting, all of which prevent musculoskeletal injuries and reduce fatigue.</p>
+                    
+                    <h3 class="text-slate-700">Time Management & Techniques</h3>
+                    <p class="text-slate-600">Effective time management is a cornerstone of administrative work. Techniques help to prioritize tasks, minimize distractions, and increase efficiency. Popular methods include:</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li><strong>The Pomodoro Technique:</strong> Breaking work into focused intervals (e.g., 25 minutes) separated by short breaks.</li>
+                        <li><strong>The Eisenhower Matrix:</strong> Categorizing tasks into four quadrants: Urgent/Important, Important/Not Urgent, Urgent/Not Important, and Not Urgent/Not Important.</li>
+                        <li><strong>Time Blocking:</strong> Scheduling specific blocks of time for a particular task on your calendar to ensure dedicated focus.</li>
+                    </ul>
+
+                    <h3 class="text-slate-700">Record Keeping & Project Management</h3>
+                    <p class="text-slate-600">Accurate record keeping is vital for legal and operational reasons, providing a historical log of all activities. Beyond records, modern administrators must also have basic project management skills. This includes defining project scope, setting clear milestones, delegating tasks, and using tools like Trello or Asana to track progress and ensure projects are completed on time.</p>
+                </div>
+            </section>
+            
+            <section id="topic-4" class="card">
+                <div class="topic-header" onclick="toggleContent('topic-4')">
+                    <h2>Business Communication</h2>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="content">
+                    <button class="copy-btn float-right" onclick="copyContent('topic-4')">Copy Notes</button>
+                    <span id="copy-msg-4" class="copied-msg float-right mt-2">Copied!</span>
+                    <h3 class="text-slate-700">Types of Communication</h3>
+                    <p class="text-slate-600">Business communication is the exchange of information within and outside an organization. The main types are:</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li><strong>Verbal:</strong> Spoken words (face-to-face conversations, phone calls, and presentations).</li>
+                        <li><strong>Non-Verbal:</strong> Body language, facial expressions, and tone of voice. This can convey more than words alone.</li>
+                        <li><strong>Written:</strong> Emails, memos, reports, and letters. It provides a formal, documented record.</li>
+                    </ul>
+                    
+                    <h3 class="text-slate-700">Importance & Channels</h3>
+                    <p class="text-slate-600">Effective communication is the lifeblood of a healthy workplace. It builds trust, fosters collaboration, and ensures clarity. Key channels include formal channels (like official reports and emails) and informal channels (like casual conversations or instant messaging).</p>
+                    
+                    <h3 class="text-slate-700">Barriers to Communication</h3>
+                    <p class="text-slate-600">Barriers can disrupt the communication process, leading to misunderstandings and errors. These include:</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li><strong>Physical Barriers:</strong> Geographic distance, noise, or a poor internet connection.</li>
+                        <li><strong>Language Barriers:</strong> Jargon, different languages, or ambiguous vocabulary.</li>
+                        <li><strong>Emotional Barriers:</strong> Stress, anger, or personal bias that affects how a message is received.</li>
+                    </ul>
+
+                    <h3 class="text-slate-700">Business Correspondence</h3>
+                    <p class="text-slate-600">This refers to the formal written communication used in a professional setting. It must be clear, concise, and adhere to a professional tone. This includes writing professional emails, official letters, and formal memos.</p>
+                </div>
+            </section>
+
+            <section id="topic-5" class="card">
+                <div class="topic-header" onclick="toggleContent('topic-5')">
+                    <h2>Human Resource & Workplace Policies</h2>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="content">
+                    <button class="copy-btn float-right" onclick="copyContent('topic-5')">Copy Notes</button>
+                    <span id="copy-msg-5" class="copied-msg float-right mt-2">Copied!</span>
+                    <h3 class="text-slate-700">HR Admin Basics</h3>
+                    <p class="text-slate-600">HR administration involves the day-to-day management of an organization's workforce, from hiring to offboarding. Key functions include recruitment (sourcing and screening candidates), onboarding (integrating new hires), payroll processing, and managing employee benefits (health insurance, retirement plans).</p>
+                    
+                    <h3 class="text-slate-700">Employee Records & Confidentiality</h3>
+                    <p class="text-slate-600">Maintaining accurate and confidential employee records is a legal and ethical requirement. These records include personal information, contracts, performance reviews, and training history. Strict confidentiality and data security protocols must be followed to protect sensitive employee data.</p>
+                    
+                    <h3 class="text-slate-700">Basic Labour Laws</h3>
+                    <p class="text-slate-600">An office administrator must have a fundamental understanding of local labor laws to ensure the company is compliant. This includes laws related to working hours, minimum wage, paid leave, anti-discrimination, and workplace health and safety. Non-compliance can lead to legal penalties and reputational damage.</p>
+                </div>
+            </section>
+
+            <section id="topic-6" class="card">
+                <div class="topic-header" onclick="toggleContent('topic-6')">
+                    <h2>Event & Meeting Management</h2>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="content">
+                    <button class="copy-btn float-right" onclick="copyContent('topic-6')">Copy Notes</button>
+                    <span id="copy-msg-6" class="copied-msg float-right mt-2">Copied!</span>
+                    <h3 class="text-slate-700">Meaning, Importance, & Types of Events</h3>
+                    <p class="text-slate-600">Event and meeting management is the process of organizing and executing meetings, conferences, and social events. It's crucial for fostering collaboration, building team cohesion, and communicating key information effectively. Types of events include staff meetings, training sessions, company-wide announcements, and team-building social events.</p>
+                    
+                    <h3 class="text-slate-700">Steps in Planning an Office Event</h3>
+                    <ol class="list-decimal list-inside space-y-2 text-slate-600">
+                        <li><strong>Define the Objective:</strong> Clearly state the purpose and desired outcome of the event (e.g., to launch a new product, to celebrate a milestone).</li>
+                        <li><strong>Set a Budget:</strong> Allocate funds for venue, catering, speakers, and other logistics.</li>
+                        <li><strong>Logistics Planning:</strong> Choose a date, select a venue, and create a detailed timeline for all activities.</li>
+                        <li><strong>Create the Agenda:</strong> Develop a clear, structured list of topics or activities to be covered.</li>
+                        <li><strong>Execution & Follow-up:</strong> Manage on-the-day logistics, and send out follow-up emails with meeting minutes or event recaps.</li>
+                    </ol>
+
+                    <h3 class="text-slate-700">Agendas & Virtual Meeting Tools</h3>
+                    <p class="text-slate-600">A meeting <strong>agenda</strong> is a list of items to be discussed, which helps to keep the meeting focused and productive. <strong>Minutes of the Meeting</strong> are a written record of the topics discussed, decisions made, and action items assigned. For virtual meetings, tools like Zoom, Microsoft Teams, or Google Meet are used, often with features for screen sharing, chat, and recording.</p>
+                </div>
+            </section>
+
+            <section id="topic-7" class="card">
+                <div class="topic-header" onclick="toggleContent('topic-7')">
+                    <h2>Office Procedures & Workflow Optimization</h2>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="content">
+                    <button class="copy-btn float-right" onclick="copyContent('topic-7')">Copy Notes</button>
+                    <span id="copy-msg-7" class="copied-msg float-right mt-2">Copied!</span>
+                    <h3 class="text-slate-700">SOPs (Standard Operating Procedures) & Advantages</h3>
+                    <p class="text-slate-600">SOPs are a set of step-by-step instructions that guide employees on how to perform a routine task. They ensure consistency, quality, and safety in operations. The advantages of having clear SOPs include improved efficiency, reduced errors, and easier onboarding for new employees.</p>
+                    
+                    <h3 class="text-slate-700">Delegation & Managing Deadlines</h3>
+                    <p class="text-slate-600"><strong>Delegation</strong> is the act of assigning a task or responsibility to a subordinate. It's a key management skill that builds trust, develops team members' skills, and frees up your time for higher-priority tasks. To manage deadlines effectively, you should break down large projects into smaller tasks, prioritize using a tool like the Eisenhower Matrix, and set realistic deadlines.</p>
+                    
+                    <h3 class="text-slate-700">Workflow Optimization</h3>
+                    <p class="text-slate-600">Workflow optimization involves streamlining processes to improve efficiency. This can be done by automating repetitive tasks (e.g., using a digital approval process instead of paper forms), eliminating unnecessary steps, and using software to track and manage tasks.</p>
+                </div>
+            </section>
+
+            <section id="topic-8" class="card">
+                <div class="topic-header" onclick="toggleContent('topic-8')">
+                    <h2>Customer Relationship Management (CRM)</h2>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="content">
+                    <button class="copy-btn float-right" onclick="copyContent('topic-8')">Copy Notes</button>
+                    <span id="copy-msg-8" class="copied-msg float-right mt-2">Copied!</span>
+                    <h3 class="text-slate-700">Importance of CRM</h3>
+                    <p class="text-slate-600">CRM is a strategy for managing a company's interactions with current and potential customers. It helps businesses build a loyal customer base, improve customer satisfaction, and increase sales. A CRM system compiles data across different channels, giving a 360-degree view of the customer.</p>
+                    
+                    <h3 class="text-slate-700">Handling Client Inquiries & Complaints</h3>
+                    <p class="text-slate-600">Handling inquiries and complaints professionally is vital for maintaining a positive company image. The key steps are:</p>
+                    <ol class="list-decimal list-inside space-y-2 text-slate-600">
+                        <li><strong>Listen Actively:</strong> Allow the client to fully explain their issue without interruption.</li>
+                        <li><strong>Empathize:</strong> Show that you understand their frustration or concern.</li>
+                        <li><strong>Offer a Solution:</strong> Provide a clear, actionable solution to their problem.</li>
+                        <li><strong>Follow Up:</strong> Ensure the problem has been resolved to the client's satisfaction.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="topic-9" class="card">
+                <div class="topic-header" onclick="toggleContent('topic-9')">
+                    <h2>Career Development & Job Readiness</h2>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="content">
+                    <button class="copy-btn float-right" onclick="copyContent('topic-9')">Copy Notes</button>
+                    <span id="copy-msg-9" class="copied-msg float-right mt-2">Copied!</span>
+                    <h3 class="text-slate-700">Resume Writing</h3>
+                    <p class="text-slate-600">A resume is a marketing document for your professional life. It should be concise, well-organized, and tailored to the job you're applying for. A strong resume includes a compelling summary, detailed work experience with quantifiable achievements, and a list of relevant skills.</p>
+                    
+                    <h3 class="text-slate-700">Interview Skills</h3>
+                    <p class="text-slate-600">Interviewing is your chance to sell your skills and personality. Key skills include:</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li><strong>Researching the Company:</strong> Understand their mission, products, and culture.</li>
+                        <li><strong>Practicing Answers:</strong> Prepare for common questions, especially behavioral ones using the STAR method (Situation, Task, Action, Result).</li>
+                        <li><strong>Asking Thoughtful Questions:</strong> Prepare a list of questions to ask the interviewer to show your interest.</li>
+                    </ul>
+                    
+                    <h3 class="text-slate-700">Creating a LinkedIn Profile</h3>
+                    <p class="text-slate-600">LinkedIn is the world's largest professional networking platform. A strong profile acts as an online resume and a tool for networking. Ensure your profile has a professional headshot, a keyword-rich summary, and a detailed list of your experience and skills. Engage with industry content to build your professional brand.</p>
+                </div>
+            </section>
+            
+            <section id="topic-10" class="card">
+                <div class="topic-header" onclick="toggleContent('topic-10')">
+                    <h2>Professional Behaviour & Office Etiquette</h2>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="content">
+                    <button class="copy-btn float-right" onclick="copyContent('topic-10')">Copy Notes</button>
+                    <span id="copy-msg-10" class="copied-msg float-right mt-2">Copied!</span>
+                    <h3 class="text-slate-700">Grooming & Professional Attire</h3>
+                    <p class="text-slate-600">Professional grooming involves being neat, clean, and well-presented. This includes wearing clean, wrinkle-free clothes that fit the office dress code, maintaining personal hygiene, and having a tidy hairstyle. Professional attire shows respect for your workplace and colleagues.</p>
+                    
+                    <h3 class="text-slate-700">Attitude & Discipline</h3>
+                    <p class="text-slate-600">A positive attitude is crucial for a harmonious workplace. This includes being a team player, showing initiative, accepting constructive feedback gracefully, and taking responsibility for your actions. Discipline ensures you stay focused, punctual, and committed to your tasks.</p>
+                    
+                    <h3 class="text-slate-700">Office Manners & Hierarchy</h3>
+                    <p class="text-slate-600">Office manners are the unwritten rules of behavior that promote a respectful and productive environment. This includes being punctual for meetings, not interrupting colleagues, and respecting personal space. Understanding the organizational hierarchy is also key for knowing the correct reporting structure and communication protocols.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 text-slate-500 text-sm">
+            <p>&copy; 2025 Office Administration & Management Notes. All Rights Reserved.</p>
+        </footer>
+    </div>
+    <script>
+        function toggleContent(topicId) {
+            const topicCard = document.getElementById(topicId);
+            topicCard.classList.toggle('active');
+        }
+
+        function copyContent(topicId) {
+            const topicSection = document.getElementById(topicId);
+            const contentToCopy = topicSection.querySelector('.content').innerText;
+            
+            const tempTextArea = document.createElement("textarea");
+            tempTextArea.value = contentToCopy;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copiedMsg = document.getElementById(`copy-msg-${topicId.split('-')[1]}`);
+            copiedMsg.style.display = 'inline';
+            setTimeout(() => {
+                copiedMsg.style.display = 'none';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
